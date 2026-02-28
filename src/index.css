@@ -543,6 +543,10 @@ body::before {
     transition: 0.4s;
 }
 
+.featured-project.no-visual {
+    grid-template-columns: 1fr;
+}
+
 .featured-project:hover {
     border-color: var(--accent);
     transform: translateY(-5px);

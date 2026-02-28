@@ -16,9 +16,9 @@ const Projects = () => {
       category: "Quantum KNN Research Project",
       description: "Research project implementing quantum K-Nearest Neighbors (QKNN) to classify genuine vs. fake smiles using facial feature extraction and quantum-inspired algorithms.",
       tech: ["Python", "Quantum Computing", "Machine Learning", "OpenCV", "Scikit-learn"],
-      links: { code: "#", demo: "#" },
-      letter: "F",
-      reverse: true
+      links: null,
+      letter: null,
+      reverse: false
     }
   ];
 
@@ -29,10 +29,12 @@ const Projects = () => {
 
       <div className="projects-container">
         {projects.map((project, index) => (
-          <div className={`featured-project ${project.reverse ? 'reverse' : ''}`} key={index}>
-            <div className="project-visual">
-               <div className="placeholder-letter">{project.letter}</div>
-            </div>
+          <div className={`featured-project ${project.reverse ? 'reverse' : ''} ${!project.letter ? 'no-visual' : ''}`} key={index}>
+            {project.letter && (
+              <div className="project-visual">
+                <div className="placeholder-letter">{project.letter}</div>
+              </div>
+            )}
             
             <div className="project-info">
                <span className="project-category">{project.category}</span>
@@ -45,14 +47,16 @@ const Projects = () => {
                  ))}
                </div>
 
-               <div className="project-actions">
-                 <a href={project.links.code} className="btn btn-outline">
-                    <i className="fab fa-github"></i> View Code
-                 </a>
-                 <a href={project.links.demo} className="btn btn-solid-cyan">
-                    <i className="fas fa-external-link-alt"></i> Live Demo
-                 </a>
-               </div>
+               {project.links && (
+                 <div className="project-actions">
+                   <a href={project.links.code} className="btn btn-outline">
+                      <i className="fab fa-github"></i> View Code
+                   </a>
+                   <a href={project.links.demo} className="btn btn-solid-cyan">
+                      <i className="fas fa-external-link-alt"></i> Live Demo
+                   </a>
+                 </div>
+               )}
             </div>
           </div>
         ))}

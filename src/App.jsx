@@ -7,13 +7,14 @@ import Services from './components/Services';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import Assistant from './components/Assistant';
 import './index.css';
 
 function App() {
   useEffect(() => {
     // Simple Scroll Reveal Animation logic
     const revealOnScroll = () => {
-      const revealElements = document.querySelectorAll(".card, .section h2");
+      const revealElements = document.querySelectorAll(".skill-card, .featured-project, .about-card, .contact-card, .section h2");
       const windowHeight = window.innerHeight;
 
       revealElements.forEach(element => {
@@ -26,7 +27,7 @@ function App() {
     };
 
     // Initial hidden state
-    const revealElements = document.querySelectorAll(".card, .section h2");
+    const revealElements = document.querySelectorAll(".skill-card, .featured-project, .about-card, .contact-card, .section h2");
     revealElements.forEach(element => {
       element.style.opacity = "0";
       element.style.transform = "translateY(40px)";
@@ -53,6 +54,7 @@ function App() {
       <Projects />
       <Contact />
       <Footer />
+      <Assistant />
     </div>
   );
 }

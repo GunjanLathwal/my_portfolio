@@ -7,7 +7,7 @@ import Services from './components/Services';
 import Projects from './components/Projects';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
-import Assistant from './components/Assistant';
+
 import './index.css';
 
 function App() {
@@ -54,7 +54,7 @@ function App() {
       <Projects />
       <Contact />
       <Footer />
-      <Assistant />
+
     </div>
   );
 }

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 const Contact = () => {
   const [status, setStatus] = useState({ message: '', type: '' });
-  const [submitting, setSubmitting] = useState(false);
+
   
   const contactInfo = {
     email: "gunjan251492@gmail.com",
@@ -11,38 +11,23 @@ const Contact = () => {
     location: "Punjab, India"
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setSubmitting(true);
-    setStatus({ message: '', type: '' });
-
     const formData = new FormData(e.target);
+    const name = formData.get('name');
+    const email = formData.get('_replyto');
+    const message = formData.get('message');
 
-    try {
-      const response = await fetch("https://formspree.io/f/mnnjzqvb", {
-        method: "POST",
-        body: formData,
-        headers: {
-          'Accept': 'application/json'
-        }
-      });
+    const subject = `Portfolio Inquiry from ${name}`;
+    const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0AMessage:%0D%0A${message}`;
+    
+    const mailtoUrl = `mailto:${contactInfo.email}?subject=${encodeURIComponent(subject)}&body=${body}`;
+    
+    // Redirect to mailto link
+    window.location.href = mailtoUrl;
 
-      if (response.ok) {
-        setStatus({ message: "Thanks! Your message has been sent successfully. 🚀", type: "success" });
-        e.target.reset();
-      } else {
-        const data = await response.json();
-        if (data.errors) {
-          setStatus({ message: data.errors.map(error => error.message).join(", "), type: "error" });
-        } else {
-          setStatus({ message: "Oops! There was a problem submitting your form.", type: "error" });
-        }
-      }
-    } catch (error) {
-      setStatus({ message: "Oops! There was a problem connecting to the server.", type: "error" });
-    } finally {
-      setSubmitting(false);
-    }
+    setStatus({ message: "Redirecting to your email client... 🚀", type: "success" });
+    e.target.reset();
   };
 
   return (
@@ -121,8 +106,8 @@ const Contact = () => {
               <textarea id="message" name="message" rows="5" placeholder="Your message..." required></textarea>
             </div>
 
-            <button type="submit" className="btn primary" disabled={submitting}>
-              {submitting ? "Sending..." : "Send Message"}
+            <button type="submit" className="btn primary">
+              Send Message
             </button>
             
             {status.message && (

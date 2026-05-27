@@ -19,7 +19,7 @@ const Contact = () => {
       alert('Message sent successfully!');
     }, 1000);
   };
-
+  
   const contactInfo = [
     {
       icon: Mail,

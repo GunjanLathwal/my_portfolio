@@ -9,7 +9,7 @@ const About = () => {
       description: 'Working on cutting-edge software solutions and gaining hands-on experience in enterprise development.',
     },
     {
-      role: 'Web Developer',
+      role: 'Full Stack Developer',
       company: 'CEED, Chitkara University',
       period: 'Sep 2023 – Feb 2025',
       description: 'Developed and maintained web applications, collaborated with cross-functional teams to deliver impactful solutions.',
@@ -41,7 +41,7 @@ const About = () => {
                 Who I Am
               </h3>
               <p className="text-muted-foreground leading-relaxed">
-                A passionate software developer with hands-on experience in building applications 
+                A passionate software engineer with hands-on experience in building applications 
                 and solving coding challenges. I love learning new technologies and creating 
                 solutions that make an impact. My journey in tech has been driven by curiosity 
                 and a desire to build meaningful products.

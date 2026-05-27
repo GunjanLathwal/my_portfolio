@@ -1,8 +1,19 @@
 import { ExternalLink, Github } from 'lucide-react';
 import medilensDemo from '../assets/medilens_demo.png';
+import jobcompassDemo from '../assets/jobcompass.png';
 
 const Portfolio = () => {
   const projects = [
+    {
+      title: 'JobCompass',
+      subtitle: 'Job Tracker & AI Resume Matcher',
+      description: 'A comprehensive Job Application Tracking System integrated with an AI Resume Matcher. Features a secure backend with JWT authentication, a dynamic Kanban-style dashboard for managing job statuses, and automated resume analysis. It intelligently matches resumes against job descriptions, saves AI-generated insights, and seamlessly injects missing skills into LaTeX templates for ATS optimization.',
+      techStack: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'JWT'],
+      image: jobcompassDemo,
+      gradient: 'from-accent/40 to-primary/40',
+      liveDemo: 'https://job-compass-navy.vercel.app/',
+      viewCode: 'https://github.com/GunjanLathwal/JobCompass',
+    },
     {
       title: 'MediLens',
       subtitle: 'Healthcare Price Transparency Platform',
